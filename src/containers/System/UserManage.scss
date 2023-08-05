@@ -1,0 +1,78 @@
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1da873;
+    color: white;
+  }
+
+  .btn-edit{
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25), 1px 1px 5px rgba(0, 0, 0, 0.25);
+    &:hover{
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25), 5px 5px 10px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .btn-delete{
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #70261c;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25), 1px 1px 5px rgba(0, 0, 0, 0.25);
+    &:hover{
+      background-color: #70261c;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25), 5px 5px 10px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  //User Modal
+  .user-modal-container{
+    .modal-header{
+      button{
+          background-color: transparent;
+          border: none;
+          color: white;
+          font-size: 32px;
+        }
+      }
+    }
+     
+  .user-modal-footer{
+    .btn-cancel{
+      width: 75px;
+      height: 33px;
+      
+    }
+    .btn-to-do{
+      width: 75px;
+      height: 33px;
+      background-color: #1da873;
+      border: none;
+      border-radius: 4px;
+      &:hover{
+        background-color: #1c7e58;
+      }
+      
+    }
+  }
