@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import _ from 'lodash';
 import './UserManage.scss';
 
 
@@ -9,6 +10,7 @@ class EditUserModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
             email: '',
             password: '',
             firstName: '',
@@ -18,6 +20,20 @@ class EditUserModal extends Component {
     }
 
     componentDidMount() {
+
+        let user = this.props.currentUser;
+        console.log("Check user didmount: ", user)
+        if (user && !_.isEmpty(user)) {  //!_isEmpty() la ham thuoc Lodash, kiem tra 1 object co rong hay khong, neu khong rong gia tri tra ve la false, them ! de thanh true
+            this.setState({
+                id: user.id,
+                email: user.email,
+                password: 'hardcode',
+                firstName: user.firstName,
+                lastName: user.lastName,
+                address: user.address,
+            })
+        }
+        console.log("Check didmount: ", this.props.currentUser)
     }
 
 
@@ -48,16 +64,17 @@ class EditUserModal extends Component {
         return isValid;
     }
 
-    handleAddNewUser = () => {
+    handleSaveUser = () => {
         let isValid = this.checkValidInput();
         if (isValid) {
-            //Call API create modal
-            this.props.createNewUser(this.state)
+            //Call API edit modal
+            this.props.editUser(this.state)
         }
 
 
     }
     render() {
+        console.log("Check props from parent: ", this.props)
         return (
 
             < Modal
@@ -103,6 +120,7 @@ class EditUserModal extends Component {
                                     placeholder="Email"
                                     onChange={(event) => { this.handleOnChangeInput(event, "email") }}
                                     value={this.state.email}
+                                    disabled
                                 />
                             </div>
                             <div className="form-group col-md-6">
@@ -114,6 +132,7 @@ class EditUserModal extends Component {
                                     placeholder="Password"
                                     onChange={(event) => { this.handleOnChangeInput(event, "password") }}
                                     value={this.state.password}
+                                    disabled
                                 />
                             </div>
                             <div className="form-group col-md-6">
@@ -159,9 +178,9 @@ class EditUserModal extends Component {
                     <Button
                         className='btn-to-do'
                         color="primary"
-                        onClick={() => { this.handleAddNewUser() }}
+                        onClick={() => { this.handleSaveUser() }}
                     >
-                        Add new
+                        Save
                     </Button>
                     <Button className='btn-cancel' color="secondary" onClick={() => { this.toggle() }}>
                         Cancel

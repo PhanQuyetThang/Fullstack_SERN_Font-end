@@ -37,6 +37,7 @@ class Login extends Component {
         // console.log("All state", this.state);
         try {
             let data = await handleLoginApi(this.state.username, this.state.password)
+            console.log("Check data: ", data)
             if (data && data.eerCode !== 0) {
                 this.setState({
                     errMessage: data.message
@@ -72,10 +73,10 @@ class Login extends Component {
                         <div className="col-12 text-center text-login">Sign in</div>
                         <div className='col-12 social-login row'>
                             <div className='col-6 login-google'>
-                                <i classname="fab fa-google-plus-g google"></i>
+                                <i class="fab fa-google-plus-g"></i>
                             </div>
                             <div className=' col-6 login-facebook'>
-                                <i classname="fab fa-facebook-f facebook"></i>
+                                <i class="fab fa-facebook-f"></i>
                             </div>
                         </div>
                         <div className='col-12 mt-3 text-center'>
