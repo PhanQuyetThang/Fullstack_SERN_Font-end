@@ -1,0 +1,119 @@
+// .section-specialty{
+//     height: 330px;
+//     background-color: #f5f5f5;
+//     border: 1px solid black;
+//     margin: 0 50px;
+//     .img-customize{
+//         height: 300px;
+//         border: 1px solid rgb(118, 25, 127);
+//         h3{
+//             border: 1px solid rgb(255, 7, 251);
+//             display: block;
+//             width: 100%;
+//             height: 100%;
+//         }
+//     }
+// }
+
+// //Reset slick slider css
+// .slick-prev{
+//     // border: 1px solid green !important;
+//     // position: relative !important;
+//     left: 0 !important;
+//     cursor: pointer;
+//     // width: 60px;
+//     // height: 40px;
+//     // background-color: rebeccapurple;
+//     // /* border: none; */
+//     // border-radius: 6px;
+//     z-index: 1000;
+// }
+// .slick-next{
+//    // border: 1px solid green !important;
+//     // position: relative !important;
+//     right: 0 !important;
+//     // cursor: pointer;
+//     // width: 60px;
+//     // height: 40px;
+//     // background-color: rebeccapurple;
+//     // /* border: none; */
+//     // border-radius: 6px;
+// }
+
+
+
+.specialty-content {
+    height: 250px;
+
+    /* the parent */
+    .slick-list {
+        background: #fff;
+    }
+
+    /* the slides */
+    .slick-slide {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .img-customize {
+        padding-left: 5px;
+        padding-right: 5px;
+        border: 1px solid #bbbbbb;
+        border-radius: 4px;
+        height: 250px;
+    }
+
+    .slick-prev { 
+        height: 45px !important;
+        width: 45px !important;
+        z-index: 10;
+        margin-left: 30px !important;
+        background: #45c3d2 !important;
+        border-radius: 6px;
+        opacity: 0.7;
+        
+        &:hover{
+            opacity: 1;
+        }
+        &:before{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+            font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+        }
+    }
+
+    .slick-next {
+        height: 45px !important;
+        width: 45px !important;
+        z-index: 10;
+        margin-right: 30px !important;
+        background: #45c3d2 !important;
+        border-radius: 6px;
+        opacity: 0.7;
+        &:hover{
+            opacity: 1;
+        }
+        &:before{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+            font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+        }
+    }  
+}
