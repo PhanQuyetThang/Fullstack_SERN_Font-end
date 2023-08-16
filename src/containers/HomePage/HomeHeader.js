@@ -2,11 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeHeader.scss';
 import { FormattedMessage } from 'react-intl';
-
+import { LANGUAGES } from '../../utils/constant';
+import { changeLanguageApp } from '../../store/actions/appActions';
+import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 class HomeHeader extends Component {
 
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isSwitchChecked: true // Mặc định là checked
+        };
+    }
 
+
+    changeLanguage = (language) => {
+        this.props.changeLanguageAppRedux(language)
+    }
+    toggleSwitch = () => {
+        this.setState(prevState => ({
+            isSwitchChecked: !prevState.isSwitchChecked
+        }));
+    };
+    render() {
+        let language = this.props.language
         return (
             <>
                 <div className='home-header-container'>
@@ -37,8 +55,12 @@ class HomeHeader extends Component {
                             </div>
                         </div>
                         <div className='right-content'>
-                            <div className='language-vi'>Vn</div>
-                            <div className='language-en'>En</div>
+                            <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}>
+                                <div class="form-check form-switch">
+                                    <span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VN</span>
+                                </div>
+                            </div>
+                            <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}><span onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</span></div>
                             <div className='support'>
 
                                 <div className='support-content'>
@@ -48,8 +70,6 @@ class HomeHeader extends Component {
                                     <a className='phone' href='tel: 0389415925'>038 941 5925</a>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -130,6 +150,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
     };
 };
 
